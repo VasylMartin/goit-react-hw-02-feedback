@@ -1,5 +1,4 @@
 import React from "react";
-import { Children } from "react";
 import PropTypes from 'prop-types';
 
 export  const Section = ({title, children}) => {

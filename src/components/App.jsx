@@ -11,23 +11,32 @@ class App extends React.Component {
     bad: 0,
   };
 
-goodIncrement = () => {
-    this.setState(prevState => ({
-        good: prevState.good + 1,
-    }))
+// goodIncrement = () => {
+//     this.setState(prevState => ({
+//         good: prevState.good + 1,
+//     }))
+// }
+
+// neutralIncrement = () => {
+//     this.setState(prevState => ({
+//         neutral: prevState.neutral + 1,
+//     }))
+// }
+
+// badIncrement = () => {
+//     this.setState(prevState => ({
+//         bad: prevState.bad + 1,
+//     }))
+// }
+
+leaveFeedback = option => {
+  this.setState(prevState => {
+    return {
+      [option]: prevState[option] + 1
+    }
+  })
 }
 
-neutralIncrement = () => {
-    this.setState(prevState => ({
-        neutral: prevState.neutral + 1,
-    }))
-}
-
-badIncrement = () => {
-    this.setState(prevState => ({
-        bad: prevState.bad + 1,
-    }))
-}
 
   render() {
     let countTotalFeedback = this.state.good + this.state.neutral + this.state.bad
@@ -38,9 +47,8 @@ badIncrement = () => {
     return(
       <Section title="Please leave feedback">
         <FeedbackOptions 
-          handleGoodIncrement={this.goodIncrement}
-          handleNeutralIncrement={this.neutralIncrement}
-          handleBadIncrement={this.badIncrement}
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.leaveFeedback}
         />
         <h2>Statistics</h2>
           {countTotalFeedback === 0 ? (

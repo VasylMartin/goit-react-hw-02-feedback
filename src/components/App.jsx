@@ -11,23 +11,6 @@ class App extends React.Component {
     bad: 0,
   };
 
-// goodIncrement = () => {
-//     this.setState(prevState => ({
-//         good: prevState.good + 1,
-//     }))
-// }
-
-// neutralIncrement = () => {
-//     this.setState(prevState => ({
-//         neutral: prevState.neutral + 1,
-//     }))
-// }
-
-// badIncrement = () => {
-//     this.setState(prevState => ({
-//         bad: prevState.bad + 1,
-//     }))
-// }
 
 leaveFeedback = option => {
   this.setState(prevState => {

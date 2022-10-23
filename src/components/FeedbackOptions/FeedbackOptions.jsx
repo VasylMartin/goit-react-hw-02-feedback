@@ -1,26 +1,20 @@
 import React from "react";
-import { nanoid } from 'nanoid'
-
-// export const FeedbackOptions = ({handleGoodIncrement, handleNeutralIncrement, handleBadIncrement}) => {
-//     return (
-//         <div>
-//             <button type="button" onClick={handleGoodIncrement}>Good</button>
-//             <button type="button" onClick={handleNeutralIncrement}>Neutral</button>
-//             <button type="button" onClick={handleBadIncrement}>Bad</button>
-//         </div>
-//     )
-// }
-
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return (
         <div>
             {options.map(
-                    ({option}) => (
-                        <button key={nanoid()} type="button" onClick={() => onLeaveFeedback(option)}>{option}</button>
+                    (option) => (
+                        <button key={option} type="button" onClick={() => onLeaveFeedback(option)}>{option}</button>
                     )
                 )
             }
         </div>
     )
 }
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string.isRequired),
+    onLeaveFeedback: PropTypes.func.isRequired,
+};
